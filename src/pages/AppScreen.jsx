@@ -13,7 +13,7 @@ const AppScreen = () => {
         <hr />
 
         <div className="container ">
-          <Daily />
+          <Calendar />
         </div>
       </div>
     </>
