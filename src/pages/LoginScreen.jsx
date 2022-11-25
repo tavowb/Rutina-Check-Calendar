@@ -1,46 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import GoogleButton from "react-google-button";
-import { useDispatch } from "react-redux";
-import { emailAndPLogin, googlelogin } from "../actions/auth";
-import { useState } from "react";
+import useLogin from "../hooks/useLogin";
 
 const LoginScreen = () => {
-  const dispatch = useDispatch();
-
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const { email, password } = data;
-
-  const handleChange = (e) => {
-    const value = e.target.value;
-
-    setData({
-      ...data,
-      [e.target.name]: value,
-    });
-  };
-
-  const handleGoogleLogin = () => {
-    dispatch(googlelogin());
-  };
-
-  const handleEmailLogin = (e) => {
-    e.preventDefault();
-
-    if (email.trim() === "" || !email.trim().includes("@")) {
-      return;
-    }
-
-    if (password.trim().length < 6) {
-      return;
-    }
-
-    dispatch(emailAndPLogin(email, password));
-  };
+  const { handleChange, handleEmailLogin, handleGoogleLogin, email, password } =
+    useLogin();
 
   return (
     <div className="container mt-5 aling-items-center col-6">
