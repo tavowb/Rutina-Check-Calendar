@@ -1,21 +1,28 @@
 import { db } from "../firebase/config-firebase";
 import { types } from "../types/types";
+import { doc, setDoc } from "firebase/firestore";
 
-export const crearRegistro = ({ pago, horas }) => {
+export const crearRegistro = () => {
   return async (dispatch, getState) => {
     const uid = getState().auth.id;
-    const calculo = pago * horas;
+    var dt = new Date();
     const datos = {
-      fecha: new Date().toLocaleDateString(),
-      pago: calculo,
+      ano: dt.getFullYear().toString(),
+      mes: dt.getMonth().toString(),
+      dia: dt.getDate().toString(),
     };
 
-    const referencia = await db.collection(`${uid}/nominas/nomina`).add(datos);
-    const id = await referencia.id;
+    // Add a new document in collection "cities"
+    const referencia = await setDoc(
+      doc(db, uid, datos.ano, datos.mes, datos.dia),
+      {
+        check: true,
+      }
+    );
 
     const newData = {
       ...datos,
-      id,
+      uid,
     };
 
     dispatch(crear(newData));

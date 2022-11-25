@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
+import { crearRegistro } from "../actions/nomina";
 
 const inter =
   "https://cdn0.iconfinder.com/data/icons/pinpoint-notifocation/48/question-fill-512.png";
@@ -8,6 +10,7 @@ const medal =
   "https://cdn4.iconfinder.com/data/icons/medals-6/64/medal-champion-award-winner-olympic_games-sign-sports-competition_29-512.png";
 
 const Daily = () => {
+  const dispatch = useDispatch();
   const [rutina, setRutina] = useState(false);
   const Bienvenido = () => {
     Swal.fire({
@@ -55,6 +58,9 @@ const Daily = () => {
     });
   };
 
+  const Check = () => {
+    dispatch(crearRegistro());
+  };
   return (
     <div className="container text-center">
       <h1>Daily Check </h1>
@@ -73,7 +79,7 @@ const Daily = () => {
               <div className="col">
                 <button
                   type="button"
-                  onClick={handleYes}
+                  onClick={Check}
                   className="btn btn-success"
                 >
                   Si

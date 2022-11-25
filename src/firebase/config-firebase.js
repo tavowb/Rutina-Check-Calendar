@@ -5,12 +5,12 @@ import "firebase/compat/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyASZjtGXX4DTShKKSSZbFfrdKKn5R9oOiA",
-  authDomain: "crud-react-c4a67.firebaseapp.com",
-  projectId: "crud-react-c4a67",
-  storageBucket: "crud-react-c4a67.appspot.com",
-  messagingSenderId: "299199260648",
-  appId: "1:299199260648:web:ef76c61a6bed0b1244a65d",
+  apiKey: "AIzaSyBAs5OftBN1gxhGGVVbadj0ROsPD--ncGk",
+  authDomain: "rutina-check.firebaseapp.com",
+  projectId: "rutina-check",
+  storageBucket: "rutina-check.appspot.com",
+  messagingSenderId: "914190886671",
+  appId: "1:914190886671:web:e3e6d803831bdc2b61807a",
 };
 
 // Initialize Firebase
