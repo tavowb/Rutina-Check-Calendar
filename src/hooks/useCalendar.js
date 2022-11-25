@@ -2,7 +2,15 @@ import React from "react";
 
 const useCalendar = () => {
   //variables
-  const nameDays = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
+  const nameDays = [
+    "Lunes",
+    "Martes",
+    "Miercoles",
+    "Jueves",
+    "Viernes",
+    "Sabado",
+    "Domingo",
+  ];
   const month = [
     "Enero",
     "Febrero",
@@ -90,7 +98,7 @@ const useCalendar = () => {
   contruir(numDays);
   Daystart = dayI(numDay, numOnweek);
 
-  return { month, numMonth, Daystart, days, calend, modf };
+  return { month, numMonth, nameDays, Daystart, days, calend, modf };
 };
 
 export default useCalendar;
