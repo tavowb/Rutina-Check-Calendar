@@ -26,8 +26,8 @@ const AuthRouter = () => {
         dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
         setLog(true);
 
-        const nominadaData = await loadData(user.uid);
-        dispatch(leerRegistros(nominadaData));
+        const CalendarData = await loadData(user.uid);
+        dispatch(leerRegistros(CalendarData));
       } else {
         setLog(false);
       }

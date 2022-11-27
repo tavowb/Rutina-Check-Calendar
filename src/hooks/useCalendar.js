@@ -98,7 +98,7 @@ const useCalendar = () => {
   contruir(numDays);
   Daystart = dayI(numDay, numOnweek);
 
-  return { month, numMonth, nameDays, Daystart, days, calend, modf };
+  return { month, numMonth, nameDays, Daystart, days, calend, modf, error, no };
 };
 
 export default useCalendar;
