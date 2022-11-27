@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Card from "./Card";
 
 const Navbar = () => {
@@ -22,19 +23,37 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/app">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active text-white" : ""}`
+                }
+                aria-current="page"
+                to="/app"
+              >
                 Daily Check
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/app">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active text-white" : ""}`
+                }
+                aria-current="page"
+                to="/months"
+              >
                 Months
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/app">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active text-white" : ""}`
+                }
+                aria-current="page"
+                to="/calendar"
+              >
                 Calendar
-              </a>
+              </NavLink>
             </li>
           </ul>
 

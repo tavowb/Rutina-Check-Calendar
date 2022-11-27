@@ -17,8 +17,6 @@ export const crearRegistro = () => {
       doc(db, uid, datos.ano, datos.mes, datos.dia),
       {
         check: true,
-        dia: datos.dia,
-        mes: datos.mes,
       }
     );
 

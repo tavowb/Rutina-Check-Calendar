@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import Daily from "../components/Daily";
+import Calendar from "../components/Calendar";
 
-const AppScreen = () => {
+const MonthsScreen = () => {
   const { auth } = useSelector((state) => state);
 
   return (
@@ -11,11 +11,11 @@ const AppScreen = () => {
         <hr />
 
         <div className="container ">
-          <Daily />
+          <Calendar />
         </div>
       </div>
     </>
   );
 };
 
-export default AppScreen;
+export default MonthsScreen;
