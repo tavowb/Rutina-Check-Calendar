@@ -1,16 +1,8 @@
 import useDaily from "../hooks/useDaily";
 
 const Daily = () => {
-  const {
-    Check,
-    handleNo,
-    handleYes,
-    Bienvenido,
-    rutina,
-    inter,
-    medal,
-    goCalendar,
-  } = useDaily();
+  const { handleNo, handleYes, Bienvenido, rutina, inter, medal, goCalendar } =
+    useDaily();
 
   return (
     <div className="container text-center">

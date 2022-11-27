@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import useCalendar from "../hooks/useCalendar";
 
 const Calendar = () => {
-  const { month, numMonth, Daystart, days, calend, modf, nameDays, error, no } =
+  const { month, numMonth, Daystart, days, calend, modf, nameDays } =
     useCalendar();
   const { nomina } = useSelector((state) => state);
 

@@ -1,6 +1,8 @@
 import React from "react";
+import useImageLinks from "./useImageLinks";
 
 const useCalendar = () => {
+  const { no, error, check, calend, modf, inter, medal } = useImageLinks();
   //variables
   const nameDays = [
     "Lunes",
@@ -31,19 +33,6 @@ const useCalendar = () => {
   const numMonth = dt.getMonth();
   const numOnweek = dt.getDay();
   const numDay = dt.getDate();
-
-  //imagenes
-  const no =
-    "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678069-sign-error-512.png";
-  const error =
-    "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678075-sign-ban-512.png";
-  const check =
-    "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678134-sign-check-512.png";
-
-  const calend =
-    "https://cdn4.iconfinder.com/data/icons/essentials-72/24/011_-_Calendar-512.png";
-
-  const modf = "https://i.imgur.com/Tz2i08s.png";
 
   //funciones
   const contruir = (n) => {
@@ -98,7 +87,22 @@ const useCalendar = () => {
   contruir(numDays);
   Daystart = dayI(numDay, numOnweek);
 
-  return { month, numMonth, nameDays, Daystart, days, calend, modf, error, no };
+  return {
+    month,
+    numMonth,
+    nameDays,
+    Daystart,
+    numDay,
+    numMonth,
+    numOnweek,
+    days,
+    calend,
+    modf,
+    error,
+    no,
+    inter,
+    medal,
+  };
 };
 
 export default useCalendar;
