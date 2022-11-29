@@ -9,7 +9,6 @@ const AppScreen = () => {
       <div className="container ">
         <h1 className="text-center"> Hola, {auth.username} </h1>
         <hr />
-
         <div className="container ">
           <Daily />
         </div>

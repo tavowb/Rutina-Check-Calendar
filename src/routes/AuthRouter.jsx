@@ -23,15 +23,20 @@ const AuthRouter = () => {
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
+        //login
         dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
         setLog(true);
 
+        //cargar datos de la db
         const CalendarData = await loadData(user.uid);
         dispatch(leerRegistros(CalendarData));
+        //
       } else {
         setLog(false);
       }
     });
+
+    return () => {};
   }, [dispatch]);
 
   return (

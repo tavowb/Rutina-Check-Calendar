@@ -2,20 +2,19 @@ import React from "react";
 import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { BsPhoneFill } from "react-icons/bs";
 import { SiGmail } from "react-icons/si";
-import { MdMail } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className=" footer bg-black text-white">
+    <footer className=" footer bg-primary text-white">
       <div className="container">
         <div className="row ">
-          <div className="col-xl-4 offset-xl-1 col-lg-2 col-md-6">
+          <div className="col-xl-4 offset-xl-1 col-lg-4 col-md-6">
             <div className="mt-3">
               <h4>Email</h4>
               <ul className="list-unstyled">
                 <li>
                   <div className="mb-2  ps-4 d-flex align-items-start">
-                    <MdMail className="me-2 mt-1"></MdMail>
+                    <SiGmail className="me-2 mt-1"></SiGmail>
                     gustavojimenezdm@unimagdalena.edu.co
                   </div>
                 </li>

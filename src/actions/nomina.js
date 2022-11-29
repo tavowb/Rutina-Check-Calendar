@@ -12,17 +12,16 @@ export const crearRegistro = () => {
       dia: dt.getDate().toString(),
     };
 
-    // Add a new document in collection "cities"
-    const referencia = await setDoc(
-      doc(db, uid, datos.ano, datos.mes, datos.dia),
-      {
-        check: true,
-      }
-    );
+    const x = {
+      check: true,
+    };
+
+    // Add a new document
+    await setDoc(doc(db, uid, datos.ano, datos.mes, datos.dia), x);
 
     const newData = {
-      ...datos,
-      uid,
+      id: datos.dia,
+      ...x,
     };
 
     dispatch(crear(newData));
@@ -45,10 +44,12 @@ export const crear = (data) => {
 
 export const borrarRegistro = (id) => {
   return async (dispatch, getState) => {
+    /*
     const uid = getState().auth.id;
 
     await db.doc(`${uid}/nominas/nomina/${id}`).delete();
     dispatch(borrar(id));
+    */
   };
 };
 

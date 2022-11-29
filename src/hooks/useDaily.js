@@ -1,20 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { crearRegistro } from "../actions/nomina";
+import useCalendar from "./useCalendar";
 import useImageLinks from "./useImageLinks";
 
 const useDaily = () => {
-  const { numDay, inter, medal, imgs1, imgs2, imgs3, imgs4 } = useImageLinks();
-  const { nomina } = useSelector((state) => state);
+  //variables
   const dispatch = useDispatch();
-
-  console.log("rutina:");
-  console.log(nomina.data);
+  const { inter, medal, imgs1, imgs2, imgs3, imgs4 } = useImageLinks();
+  let navigate = useNavigate();
 
   const [rutina, setRutina] = useState(false);
-  let navigate = useNavigate();
+  const { numDay } = useCalendar();
+  let { nomina } = useSelector((state) => state);
+
+  //Funciones
+  const rutinaCompleta = (i, nomina) => {
+    let flag = false;
+    if (nomina.data.length === 0) {
+      return false;
+    }
+
+    nomina.data.map((nom) => {
+      const x = Object.values(nom);
+      flag = x[0] === i.toString();
+      return flag;
+    });
+
+    return flag;
+  };
+
+  useEffect(() => {
+    setRutina(rutinaCompleta(numDay, nomina));
+    return () => {};
+  }, [nomina, numDay]);
 
   const Bienvenido = () => {
     Swal.fire({
@@ -24,7 +45,6 @@ const useDaily = () => {
   };
 
   const handleYes = () => {
-    setRutina(true);
     Swal.fire({
       title: "Deseas dejar registro de tu rutina diaria?",
       showDenyButton: true,
@@ -50,7 +70,6 @@ const useDaily = () => {
   };
 
   const handleNo = () => {
-    setRutina(false);
     Swal.fire({
       imageUrl: imgs4,
       imageWidth: 300,
@@ -75,11 +94,11 @@ const useDaily = () => {
     handleNo,
     handleYes,
     Bienvenido,
-    rutina,
     dispatch,
     inter,
     medal,
     goCalendar,
+    rutina,
   };
 };
 

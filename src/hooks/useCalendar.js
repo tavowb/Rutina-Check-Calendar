@@ -1,8 +1,9 @@
-import React from "react";
+import { useSelector } from "react-redux";
 import useImageLinks from "./useImageLinks";
 
 const useCalendar = () => {
-  const { no, error, check, calend, modf, inter, medal } = useImageLinks();
+  const { nomina } = useSelector((state) => state);
+  const { no, error, calend, modf, inter, medal } = useImageLinks();
   //variables
   const nameDays = [
     "Lunes",
@@ -83,6 +84,18 @@ const useCalendar = () => {
     }
   };
 
+  const validator = (i) => {
+    let flag = false;
+    nomina.data.map((nom) => {
+      const x = Object.values(nom);
+      if (!flag) {
+        flag = x[0] === i.toString();
+      }
+      return flag ? modf : calend;
+    });
+    return flag ? modf : calend;
+  };
+
   const numDays = num();
   contruir(numDays);
   Daystart = dayI(numDay, numOnweek);
@@ -93,7 +106,6 @@ const useCalendar = () => {
     nameDays,
     Daystart,
     numDay,
-    numMonth,
     numOnweek,
     days,
     calend,
@@ -102,6 +114,7 @@ const useCalendar = () => {
     no,
     inter,
     medal,
+    validator,
   };
 };
 

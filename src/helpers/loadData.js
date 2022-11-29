@@ -1,5 +1,4 @@
 import { db } from "../firebase/config-firebase";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 
 export const loadData = async (uid) => {
   var dt = new Date();

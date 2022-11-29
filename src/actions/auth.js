@@ -13,7 +13,7 @@ export const emailAndPLogin = (email, password) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
-        dispatch(login(user.id, user.displayName));
+        dispatch(login(user.id, user.displayName, user.email, user.photoURL));
       });
   };
 };
@@ -26,7 +26,7 @@ export const register = (email, password, username) => {
       .then(async ({ user }) => {
         await user.updateProfile({ displayName: username });
 
-        dispatch(login(user.id, user.displayName));
+        dispatch(login(user.id, user.displayName, user.email, user.photoURL));
       });
   };
 };

@@ -1,22 +1,9 @@
-import { useSelector } from "react-redux";
 import useCalendar from "../hooks/useCalendar";
 
 const Calendar = () => {
-  const { month, numMonth, Daystart, days, calend, modf, nameDays } =
+  //variables
+  const { month, numMonth, Daystart, days, modf, nameDays, validator } =
     useCalendar();
-  const { nomina } = useSelector((state) => state);
-
-  const validator = (i) => {
-    let flag = false;
-    nomina.data.map((nom) => {
-      const x = Object.values(nom);
-      if (!flag) {
-        flag = x[0] == i.toString();
-      }
-    });
-    return flag ? modf : calend;
-  };
-
   return (
     <div className="text-center">
       <h1> {month[numMonth]} </h1>
